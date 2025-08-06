@@ -1,0 +1,20 @@
+{
+  "name": "sample-mcp-server",
+  "version": "1.0.0",
+  "description": "A sample MCP server for testing",
+  "main": "index.js",
+  "mcp": {
+    "endpoint": "http://localhost:3000/mcp",
+    "protocol": "http",
+    "authentication": {
+      "type": "api-key"
+    },
+    "capabilities": ["chat", "tools", "resources"],
+    "rateLimit": {
+      "requests": 100,
+      "window": "1h"
+    }
+  },
+  "author": "Test Developer",
+  "license": "MIT"
+}

@@ -1,0 +1,27 @@
+{
+  "sources": [
+    {
+      "type": "local",
+      "config": {
+        "paths": ["."],
+        "patterns": ["**/mcp.config.json", "**/mcp.yaml", "**/package.json"]
+      },
+      "enabled": true
+    },
+    {
+      "type": "vscode",
+      "config": {},
+      "enabled": true
+    },
+    {
+      "type": "registry",
+      "config": {
+        "url": "https://registry.modelcontextprotocol.org/api/servers"
+      },
+      "enabled": false
+    }
+  ],
+  "timeout": 10000,
+  "maxConcurrent": 5,
+  "excludePatterns": ["**/node_modules/**", "**/.*", "**/dist/**"]
+}

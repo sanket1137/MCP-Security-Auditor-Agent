@@ -1,0 +1,97 @@
+{
+  "name": "mcp-security-auditor-extension",
+  "displayName": "MCP Security Auditor",
+  "description": "Discover and analyze security of MCP (Model Context Protocol) servers",
+  "version": "1.0.0",
+  "publisher": "mcp-security-auditor",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other",
+    "Linters",
+    "Debuggers"
+  ],
+  "keywords": [
+    "mcp",
+    "security",
+    "audit",
+    "model-context-protocol"
+  ],
+  "activationEvents": [
+    "onCommand:mcpAuditor.discoverServers",
+    "onCommand:mcpAuditor.auditServers",
+    "onCommand:mcpAuditor.viewReport",
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "mcpAuditor.discoverServers",
+        "title": "Discover MCP Servers",
+        "category": "MCP Auditor",
+        "icon": "$(search)"
+      },
+      {
+        "command": "mcpAuditor.auditServers",
+        "title": "Run Security Audit",
+        "category": "MCP Auditor",
+        "icon": "$(shield)"
+      },
+      {
+        "command": "mcpAuditor.viewReport",
+        "title": "View Security Report",
+        "category": "MCP Auditor",
+        "icon": "$(graph)"
+      },
+      {
+        "command": "mcpAuditor.listServersWithAudit",
+        "title": "List Servers with Security Details",
+        "category": "MCP Auditor",
+        "icon": "$(list-tree)"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "mcpAuditorView",
+          "name": "MCP Security Auditor",
+          "when": "true"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "mcpAuditor.discoverServers",
+          "when": "view == mcpAuditorView",
+          "group": "navigation"
+        },
+        {
+          "command": "mcpAuditor.auditServers",
+          "when": "view == mcpAuditorView",
+          "group": "navigation"
+        },
+        {
+          "command": "mcpAuditor.listServersWithAudit",
+          "when": "view == mcpAuditorView",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "20.x",
+    "@types/vscode": "^1.74.0",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  }
+}

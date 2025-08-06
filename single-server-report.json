@@ -1,0 +1,93 @@
+{
+  "id": "audit-1754445368977",
+  "timestamp": "2025-08-06T01:56:08.977Z",
+  "summary": {
+    "totalServers": 1,
+    "serversAnalyzed": 1,
+    "overallSecurityScore": "F",
+    "criticalVulnerabilities": 0,
+    "highSeverityIssues": 3,
+    "recommendations": 1
+  },
+  "servers": [
+    {
+      "serverId": "manual-1754445368900",
+      "serverName": "Manual Server",
+      "endpoint": "ws://localhost:8080/mcp",
+      "timestamp": "2025-08-06T01:56:08.908Z",
+      "overallScore": "F",
+      "checks": [
+        {
+          "id": "endpoint-availability",
+          "name": "Endpoint Availability",
+          "category": "availability",
+          "status": "fail",
+          "severity": "critical",
+          "description": "Endpoint is not accessible",
+          "details": "connect ECONNREFUSED 127.0.0.1:8080"
+        },
+        {
+          "id": "ssl-not-used",
+          "name": "SSL/TLS Usage",
+          "category": "encryption",
+          "status": "fail",
+          "severity": "high",
+          "description": "Server is not using SSL/TLS encryption"
+        },
+        {
+          "id": "authentication-check-error",
+          "name": "Authentication Check",
+          "category": "authentication",
+          "status": "error",
+          "severity": "low",
+          "description": "Could not verify authentication configuration",
+          "details": "Unsupported protocol ws:"
+        },
+        {
+          "id": "rate-limit-configured",
+          "name": "Rate Limiting",
+          "category": "availability",
+          "status": "warning",
+          "severity": "low",
+          "description": "Rate limiting configuration not detected"
+        }
+      ],
+      "recommendations": [
+        {
+          "id": "implement-rate-limiting",
+          "title": "Implement Rate Limiting",
+          "description": "Consider implementing rate limiting to prevent abuse",
+          "severity": "low",
+          "category": "availability",
+          "actionRequired": false
+        }
+      ],
+      "vulnerabilities": [
+        {
+          "id": "endpoint-unreachable",
+          "title": "Endpoint Unreachable",
+          "description": "The MCP server endpoint cannot be reached",
+          "severity": "high",
+          "category": "availability",
+          "affected": "ws://localhost:8080/mcp",
+          "remediation": "Verify server is running and network connectivity"
+        },
+        {
+          "id": "unencrypted-communication",
+          "title": "Unencrypted Communication",
+          "description": "Server communication is not encrypted with SSL/TLS",
+          "severity": "high",
+          "category": "encryption",
+          "affected": "ws://localhost:8080/mcp",
+          "remediation": "Enable HTTPS/WSS to encrypt communications"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "generatedBy": "MCP Security Auditor",
+    "duration": 0,
+    "config": {}
+  }
+}

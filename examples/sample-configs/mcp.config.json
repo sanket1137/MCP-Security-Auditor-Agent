@@ -1,0 +1,26 @@
+{
+  "name": "Local Development MCP Server",
+  "version": "0.1.0",
+  "description": "Local MCP server for development and testing",
+  "endpoint": "ws://localhost:8080/mcp",
+  "protocol": "ws",
+  "owner": "Development Team",
+  "authentication": {
+    "type": "none"
+  },
+  "capabilities": [
+    "chat",
+    "tools"
+  ],
+  "rateLimit": {
+    "requests": 50,
+    "window": "1m"
+  },
+  "documentation": "http://localhost:8080/docs",
+  "license": "MIT",
+  "tags": [
+    "development",
+    "testing",
+    "local"
+  ]
+}

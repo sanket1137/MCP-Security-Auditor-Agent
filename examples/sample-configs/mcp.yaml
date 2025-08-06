@@ -1,0 +1,25 @@
+name: "Example MCP Server"
+version: "1.2.0"
+description: "An example MCP server configuration"
+endpoint: "https://api.example.com/mcp"
+protocol: "https"
+owner: "Example Corp"
+authentication:
+  type: "bearer"
+  details:
+    tokenEndpoint: "https://auth.example.com/token"
+capabilities:
+  - "chat"
+  - "tools"
+  - "resources"
+  - "prompts"
+rateLimit:
+  requests: 1000
+  window: "1h"
+documentation: "https://docs.example.com/mcp"
+repository: "https://github.com/example/mcp-server"
+license: "Apache-2.0"
+tags:
+  - "production"
+  - "enterprise"
+  - "llm"
